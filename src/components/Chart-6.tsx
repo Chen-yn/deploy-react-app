@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import * as echarts from 'echarts';
 import {createEchartsOptions} from '../shared/create-echarts-options';
 import {px} from '../shared/px';
-import china from '../geo/china.json';
+import china from '../geo/China.json';
 
 export const Chart6 = () => {
     const divRef = useRef(null);
