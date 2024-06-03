@@ -1,0 +1,157 @@
+@import "helper";
+
+.home-wrap {
+  display: flex;
+  flex-direction: column;
+  background-color: #0c111a;
+  width: 100%;
+  height: px(1080);
+  background-size: cover;
+
+  > footer {
+    border: 1px solid red;
+
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: px(95);
+    font-size: px(38);
+    font-weight: 600;
+    color: #00FFFF;
+  }
+
+  .content {
+    padding: px(48) px(24);
+    flex-grow: 1;
+    display: grid;
+    grid-template:
+            "box1 box2 box5" 755fr
+            "box1 box2 box6" 450fr
+            "box3 box4 box7" 563fr / 548fr 811fr 747fr;
+    grid-column-gap: px(14);
+    grid-row-gap: px(14);
+
+    .bordered {
+      border: 1px solid #29FFE6;
+      border-radius: 4px;
+      position: relative;
+      box-shadow: 0 0 2px 0 #00FFFF, inset 0 0 2px 0 #00FFFF;
+
+      &::before {
+        pointer-events: none;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border-radius: 4px;
+        box-shadow: 17px 0 0 -16px #1AC9FF,
+        -11px 0 0 -10px #1AC9FF,
+        0 11px 0 -10px #1AC9FF,
+        0 -11px 0 -10px #1AC9FF;
+
+      }
+    }
+
+    .section1 {
+      grid-area: box1;
+    }
+
+    .section2 {
+      grid-area: box2;
+    }
+
+    .section3 {
+      grid-area: box3;
+    }
+
+    .section4 {
+      grid-area: box4;
+    }
+
+    .section5 {
+      grid-area: box5;
+    }
+
+    .section6 {
+      grid-area: box6;
+    }
+
+    .section7 {
+      grid-area: box7;
+    }
+  }
+
+  .flight-check, .flight-video-check, .map-wrapper, .attendance-wrap, .monitor-wrap, .chart-wrap {
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+      padding: 0 px(12);
+    }
+
+    .chart, .video-chart {
+      height: px(243);
+    }
+
+    .chart1 {
+      height: px(180);
+    }
+
+    .map, .attendance {
+      height: px(550);
+    }
+
+    .monitor {
+      height: px(200);
+    }
+  }
+
+  .map-wrapper p {
+    color: white;
+  }
+
+  .monitor-wrap {
+    div {
+      height: px(100);
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      p {
+        font-size: px(16);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: px(16);
+        background-color: rgba(252, 127, 4, 0.2);
+        border: 1px solid #F8B92D;
+        box-shadow: 0 0 2px 0 rgba(252, 127, 4, 1), inset 0 0 2px 0 rgba(252, 127, 4, 1);
+
+        &::before {
+          pointer-events: none;
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          box-shadow: 17px 0 0 -16px #f0e203,
+          -11px 0 0 -10px #f0e203,
+          0 11px 0 -10px #f0e203,
+          0 -11px 0 -10px #f0e203;
+        }
+
+        span {
+          color: #F8B92D;
+        }
+      }
+    }
+  }
+}
