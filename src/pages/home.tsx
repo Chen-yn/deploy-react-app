@@ -8,8 +8,10 @@ import {Complaints} from "../components/Complaints";
 import {Attendance} from "../components/Attendance";
 import {Monitoring} from "../components/Monitoring";
 import {Chart1} from "../components/Chart-1";
+import { planePath } from "../helper/geo";
 
 export const Home = () => {
+    
     return (
         <div className="home-wrap" style={{backgroundImage: `url(${image})`}}>
             <div className="header">战狼智慧安全</div>
