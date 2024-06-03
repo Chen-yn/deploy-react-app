@@ -1,64 +1,54 @@
-import React, {useEffect, useRef} from "react";
-import * as echarts from "echarts";
-import {createEchartOptions} from "../helper/createEchartOptions";
-import {px} from "../helper";
-
-export const Chart1 = () => {
+import React, {useEffect, useRef} from 'react';
+import * as echarts from 'echarts';
+import {baseEchartOptions} from '../shared/base-echart-options';
+import {createEchartsOptions} from '../shared/create-echarts-options';
+import {px} from '../shared/px'
+export const Chart1 = () =>{
     const divRef = useRef(null);
+    
     useEffect(() => {
-        const myChart = echarts.init(divRef.current!);
-        myChart.setOption(createEchartOptions({
-            grid: {
-                x: px(50),
-                y: px(40),
-                x2: px(40),
-                y2: px(40),
-            },
+        // console.log(divRef.current);
+        var myChart = echarts.init(divRef.current);
+        myChart.setOption(createEchartsOptions( {
+            ... baseEchartOptions,
             xAxis: {
-                type: "category",
-                boundaryGap: false,
-                data: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24],
-                splitLine: {show: true, lineStyle: {color: "#2afff0"}},
-                axisTick: {show: false},
-                axisLine: {show: false},
-            },
-            yAxis: {
-                type: "value",
-                splitLine: {lineStyle: {color: "#073E78"}},
+                data: ['兰州新区', '兰州新区', '兰州新区', '兰州新区',
+                    '兰州新区', '兰州新区', '兰州新区', '兰州新区', '兰州新区'],
+                axisTick:{show: false},
                 axisLabel: {
-                    formatter(val: any) {
-                        return val * 100 + "%";
-                    }
+                    fontSize: px(12),
+                    formatter(val){
+                        if(val.length > 2){
+                            const array = val.split('');
+                            array.splice(2 , 0, '\n');
+                            return array.join('');
+                        }else{
+                            return val;
+                        }
+                    },
                 }
             },
-            series: [{
-                type: "line",
-                data: [
-                    0.15, 0.13, 0.11,
-                    0.13, 0.14, 0.15,
-                    0.16, 0.18, 0.21,
-                    0.19, 0.17, 0.16,
-                    0.15
-                ],
-                symbol: "circle",
-                symbolSize: px(12),
-                lineStyle: {width: px(2)},
-                areaStyle: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                        offset: 0,
-                        color: "#0e5b6c"
-                    }, {
-                        offset: 1,
-                        color: "#29ffe6"
-                    }]),
+
+            yAxis: {
+                axisLabel: {
+                    fontSize: px(12),
                 }
-            }]
+            },
+            series: [
+                {
+                    type: 'bar',
+                    data: [10, 20, 36, 41, 15, 26, 37, 18, 29]
+                }
+            ]
         }));
-    }, []);
-    return (
-        <div className="bordered chart-wrap">
-            <h4>监控数据</h4>
-            <div ref={divRef} className="chart1"/>
+    },[]);
+
+    return(
+        <div className="bordered 管辖统计">
+            <h2>案发派出所管辖统计</h2>
+            <div ref={divRef} className="chart">
+
+            </div>
         </div>
     );
 };
