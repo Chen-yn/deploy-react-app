@@ -14,8 +14,3 @@ yarn dev
 yarn build
 ```
 
-预览
-
-```bash
-yarn serve
-```# Big-Screen-demo-1
